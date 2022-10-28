@@ -46,7 +46,7 @@
 
                 <!-- <button id="make-payment">Make Payment</button> -->
             
-                <div id="paypal-button-container"></div>
+                <!-- <div id="paypal-button-container"></div> -->
             </div>
         </div>
         <div class="col-lg-6">
@@ -168,7 +168,7 @@
                     'Content-Type':'application/json',
                     'X-CSRFToken':csrftoken,
                 },
-                body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo})
+                body:JSON.stringify({'form':userFormData, 'shipping':shippingInfo}),
             })
             .then((response) => response.json())
             .then((data) => {

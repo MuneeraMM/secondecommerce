@@ -1,9 +1,4 @@
-import email
-from email.mime import image
-from itertools import product
-from pyexpat import model
-from re import T
-from unicodedata import name
+
 from django.db import models
 
 # Create your models here.
@@ -21,7 +16,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
     digital  = models.BooleanField(default=False, null=True, blank=False)
-    image = models.ImageField(null=True, blank=T)
+    image = models.ImageField(null=True, blank=True)
     def __str__(self):
         return self.name
 

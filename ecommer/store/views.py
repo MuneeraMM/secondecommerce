@@ -1,15 +1,16 @@
-from math import prod
+
 from django.shortcuts import render
 # Create your views here.
 from .models import *
-from django.http import JsonResponse
 import json
+from django.http import JsonResponse
+
 import datetime
 
 from . utils import cookieCart, cartData, guestOrder
 
 def store(request):
-    data = cookieCart(request)
+    data = cartData(request)
     cartItems = data['cartItems']
     
     products = Product.objects.all()
@@ -17,7 +18,7 @@ def store(request):
     return render(request, 'store/store.html',context)
 
 def cart(request):
-    data = cookieCart(request)
+    data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
@@ -27,7 +28,7 @@ def cart(request):
 
 def checkout(request):
    
-    data = cookieCart(request)
+    data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
